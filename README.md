@@ -1,4 +1,4 @@
-\# Todo App
+## Todo App
 
 
 
@@ -16,7 +16,7 @@ Small CLI todo application :
 
 
 
-\## Setup
+## Setup
 
 python -m venv .venv
 
