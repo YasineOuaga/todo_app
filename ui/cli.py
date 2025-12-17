@@ -10,9 +10,8 @@ def start():
 
         if choice == "1":
             text = input("Enter a todo: ")
-            if text != "":
-                add_todo(text)
-            else:
+            success = add_todo(text)
+            if success == False:
                 print("Todo cannot be empty")
 
         elif choice == "2":
