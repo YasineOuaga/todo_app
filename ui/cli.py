@@ -1,10 +1,20 @@
 from service.todo_service import add_todo, list_todos
 
 def start():
-    text = input("Enter a todo: ")
-    add_todo(text)
+    while True:
+        print("1. Add todo")
+        print("2. Show todos")
+        
 
-    todos = list_todos()
-    print("Todos:")
-    for t in todos:
-        print(t)
+        choice = input("Choose: ")
+
+        if choice == "1":
+            text = input("Enter a todo: ")
+            add_todo(text)
+        elif choice == "2":
+            todos = list_todos()
+            print("Todos:")
+            for t in todos:
+                print(t.strip())
+        else:
+            print("Invalid choice")
