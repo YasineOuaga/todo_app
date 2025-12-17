@@ -36,8 +36,12 @@ def start():
                 print("Please enter a number")
 
         elif choice == "4":
-            clear_todos()
-            print("All todos cleared")
+            confirm = input("Are you sure? (y/n): ")
+            if confirm == "y":
+                clear_todos()
+                print("All todos cleared")
+            else:
+                print("Cancelled")
 
         elif choice == "5":
             break
