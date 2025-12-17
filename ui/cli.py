@@ -11,12 +11,15 @@ def start():
         if choice == "1":
             text = input("Enter a todo: ")
             add_todo(text)
+
         elif choice == "2":
             todos = list_todos()
             print("Todos:")
-            for t in todos:
-                print(t.strip())
+            for i in range(len(todos)):
+                print(i + 1, "-", todos[i].strip())
+
         elif choice == "3":
             break
+
         else:
             print("Invalid choice")
