@@ -1,5 +1,5 @@
 from domain.todo import Todo
-from data.todo_repository import save_todo, get_all_todos, delete_todo
+from data.todo_repository import save_todo, get_all_todos, delete_todo, clear_all
 
 def add_todo(text):
     if text == "":
@@ -14,3 +14,6 @@ def list_todos():
 
 def remove_todo(number):
     return delete_todo(number - 1)
+
+def clear_todos():
+    clear_all()

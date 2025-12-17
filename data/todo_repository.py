@@ -21,3 +21,8 @@ def delete_todo(index):
             file.write(t)
 
     return True
+
+def clear_all():
+    with open("todos.txt", "w") as file:
+        file.write("")
+
