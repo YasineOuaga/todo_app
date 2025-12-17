@@ -1,13 +1,10 @@
 def save_todo(todo):
-    file = open("todos.txt", "a")
-    file.write(todo.text + "\n")
-    file.close()
+    with open("todos.txt", "a") as file:
+        file.write(todo.text + "\n")
 
 def get_all_todos():
     try:
-        file = open("todos.txt", "r")
-        todos = file.readlines()
-        file.close()
-        return todos
+        with open("todos.txt", "r") as file:
+            return file.readlines()
     except FileNotFoundError:
         return []
