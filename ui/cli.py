@@ -4,7 +4,7 @@ def start():
     while True:
         print("1. Add todo")
         print("2. Show todos")
-        
+        print("3. Exit")
 
         choice = input("Choose: ")
 
@@ -16,5 +16,7 @@ def start():
             print("Todos:")
             for t in todos:
                 print(t.strip())
+        elif choice == "3":
+            break
         else:
             print("Invalid choice")
