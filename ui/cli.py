@@ -30,7 +30,9 @@ def start():
             number = input("Todo number to delete: ")
             if number.isdigit():
                 success = remove_todo(int(number))
-                if success == False:
+                if success == True:
+                    print("Todo deleted")
+                else:
                     print("Invalid number")
             else:
                 print("Please enter a number")
