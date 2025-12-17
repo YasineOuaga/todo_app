@@ -16,9 +16,12 @@ def start():
 
         elif choice == "2":
             todos = list_todos()
-            print("Todos:")
-            for i in range(len(todos)):
-                print(i + 1, "-", todos[i].strip())
+            if len(todos) == 0:
+                print("No todos yet")
+            else:
+                print("Todos:")
+                for i in range(len(todos)):
+                    print(i + 1, "-", todos[i].strip())
 
         elif choice == "3":
             break
