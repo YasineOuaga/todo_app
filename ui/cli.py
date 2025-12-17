@@ -1,10 +1,11 @@
-from service.todo_service import add_todo, list_todos
+from service.todo_service import add_todo, list_todos, remove_todo
 
 def start():
     while True:
         print("1. Add todo")
         print("2. Show todos")
-        print("3. Exit")
+        print("3. Delete todo")
+        print("4. Exit")
 
         choice = input("Choose: ")
 
@@ -24,6 +25,15 @@ def start():
                     print(i + 1, "-", todos[i].strip())
 
         elif choice == "3":
+            number = input("Todo number to delete: ")
+            if number.isdigit():
+                success = remove_todo(int(number))
+                if success == False:
+                    print("Invalid number")
+            else:
+                print("Please enter a number")
+
+        elif choice == "4":
             break
 
         else:

@@ -8,3 +8,16 @@ def get_all_todos():
             return file.readlines()
     except FileNotFoundError:
         return []
+
+def delete_todo(index):
+    todos = get_all_todos()
+    if index < 0 or index >= len(todos):
+        return False
+
+    del todos[index]
+
+    with open("todos.txt", "w") as file:
+        for t in todos:
+            file.write(t)
+
+    return True
