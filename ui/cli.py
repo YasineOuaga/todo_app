@@ -50,3 +50,4 @@ def start():
 
         else:
             print("Invalid choice")
+            print()  
