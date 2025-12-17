@@ -39,5 +39,8 @@ def start():
             clear_todos()
             print("All todos cleared")
 
+        elif choice == "5":
+            break
+
         else:
             print("Invalid choice")
