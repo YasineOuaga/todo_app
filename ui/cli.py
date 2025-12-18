@@ -21,6 +21,8 @@ def start():
                 print("Todo cannot be empty")
 
         elif choice == "2":
+            print("---------------------------------")
+
             todos = list_todos()
             if len(todos) == 0:
                 print("No todos yet")
@@ -29,6 +31,8 @@ def start():
                 for i in range(len(todos)):
                     print(i + 1, "-", todos[i].strip())
                 print("Total todos:", len(todos))
+            print("---------------------------------")
+
 
         elif choice == "3":
             number = input("Todo number to delete: ")
