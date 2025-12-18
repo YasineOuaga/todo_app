@@ -1,6 +1,6 @@
 def save_todo(todo):
     with open("todos.txt", "a") as file:
-        file.write(todo.text + "\n")
+        file.write("[ ] " + todo.text + "\n")
 
 def get_all_todos():
     try:
@@ -15,6 +15,26 @@ def delete_todo(index):
         return False
 
     del todos[index]
+
+    with open("todos.txt", "w") as file:
+        for t in todos:
+            file.write(t)
+
+    return True
+
+def toggle_done(index):
+    todos = get_all_todos()
+    if index < 0 or index >= len(todos):
+        return False
+
+    line = todos[index].strip()
+
+    if line.startswith("[ ] "):
+        line = "[x] " + line[4:]
+    elif line.startswith("[x] "):
+        line = "[ ] " + line[4:]
+
+    todos[index] = line + "\n"
 
     with open("todos.txt", "w") as file:
         for t in todos:
