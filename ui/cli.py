@@ -12,7 +12,7 @@ def start():
         print("5) Exit")
         print("---------------------------------")
 
-        choice = input("Choose (1-5): ")
+        choice = input("Choose (1-5): ").strip()
 
         if choice == "1":
             text = input("Enter a todo: ")
@@ -41,7 +41,7 @@ def start():
                 print("Please enter a number")
 
         elif choice == "4":
-            confirm = input("Are you sure? (y/n): ")
+            confirm = input("Are you sure? (y/n): ").strip().lower()
             if confirm == "y":
                 clear_todos()
                 print("All todos cleared")
