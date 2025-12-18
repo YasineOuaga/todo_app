@@ -28,6 +28,7 @@ def start():
                 print("Todos:")
                 for i in range(len(todos)):
                     print(i + 1, "-", todos[i].strip())
+                print("Total todos:", len(todos))
 
         elif choice == "3":
             number = input("Todo number to delete: ")
