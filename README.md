@@ -29,6 +29,8 @@ pip install -r requirements.txt
 - Show all todos
 - Delete a todo
 - Clear all todos (with confirmation)
+- marked as done or undone
+
 
 ## Project structure
 - `main.py` – entry point of the application
@@ -53,11 +55,6 @@ The application is a simple command-line todo app.
 - The data layer (`data`) reads and writes todos to a text file.
 - Todos are stored in a file called `todos.txt`.
 
-Each todo can be:
-- added
-- listed
-- deleted
-- marked as done or undone
 
 The application starts from `main.py`.
 
