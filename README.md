@@ -50,10 +50,7 @@ The application is a simple command-line todo app.
 - The user interacts with the app via a text-based menu.
 - The UI layer (`ui`) handles user input and output.
 - The service layer (`service`) contains the application logic.
-- The data layer (`data`) reads and writes todos to a text file.
-- Todos are stored in a file called `todos.txt`.
 
-The application starts from `main.py`.
 
 
 
