@@ -1,4 +1,4 @@
-from settings import DB_PATH
+from config.settings import DB_PATH
 from data.db import init_db
 from ui.cli import start
 

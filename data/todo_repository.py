@@ -1,5 +1,5 @@
 import sqlite3
-from settings import DB_PATH
+from config.settings import DB_PATH
 
 
 def save_todo(todo):
