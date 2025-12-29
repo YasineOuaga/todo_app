@@ -40,6 +40,8 @@ pip install -r requirements.txt
 ## Database
 - SQLite database stored in `db/todo_app.db`
 - Sample database available at `db/sample_todo.db`
+### Database (DB Browser for SQLite)
+![Database screenshot](images/image.png)
 
 ## Project structure
 - `main.py` – entry point of the application
