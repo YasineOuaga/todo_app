@@ -31,10 +31,14 @@ def start():
                 print("No todos yet")
             else:
                 print("Todos:")
-                for i in range(len(todos)):
-                    print(i + 1, "-", todos[i].strip())
+                for row in todos:
+                    todo_id = row[0]
+                    text = row[1]
+                    done = row[2]
+                    mark = "[x]" if done == 1 else "[ ]"
+                    print(todo_id, "-", mark, text)
                 print("Total todos:", len(todos))
-            print("---------------------------------")
+
 
 
         elif choice == "3":
