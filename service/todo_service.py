@@ -13,10 +13,11 @@ def list_todos():
     return get_all_todos()
 
 def remove_todo(number):
-    return delete_todo(number - 1)
+    return delete_todo(number)
 
 def toggle_todo(number):
-    return toggle_done(number - 1)
+    return toggle_done(number)
+
 
 
 def clear_todos():
