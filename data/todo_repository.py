@@ -1,48 +1,64 @@
+import sqlite3
+from settings import DB_PATH
+
+
 def save_todo(todo):
-    with open("todos.txt", "a") as file:
-        file.write("[ ] " + todo.text + "\n")
+    connection = sqlite3.connect(DB_PATH)
+    cursor = connection.cursor()
+
+    cursor.execute("INSERT INTO todos(text, done) VALUES(?, ?)", (todo.text, 0))
+
+    connection.commit()
+    connection.close()
+
 
 def get_all_todos():
-    try:
-        with open("todos.txt", "r") as file:
-            return file.readlines()
-    except FileNotFoundError:
-        return []
+    connection = sqlite3.connect(DB_PATH)
+    cursor = connection.cursor()
 
-def delete_todo(index):
-    todos = get_all_todos()
-    if index < 0 or index >= len(todos):
+    cursor.execute("SELECT id, text, done FROM todos ORDER BY id")
+    rows = cursor.fetchall()
+
+    connection.close()
+    return rows
+
+
+def delete_todo(todo_id):
+    connection = sqlite3.connect(DB_PATH)
+    cursor = connection.cursor()
+
+    cursor.execute("DELETE FROM todos WHERE id = ?", (todo_id,))
+    connection.commit()
+
+    deleted = cursor.rowcount > 0
+    connection.close()
+    return deleted
+
+
+def toggle_done(todo_id):
+    connection = sqlite3.connect(DB_PATH)
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT done FROM todos WHERE id = ?", (todo_id,))
+    row = cursor.fetchone()
+
+    if row is None:
+        connection.close()
         return False
 
-    del todos[index]
+    current_done = row[0]
+    new_done = 0 if current_done == 1 else 1
 
-    with open("todos.txt", "w") as file:
-        for t in todos:
-            file.write(t)
-
+    cursor.execute("UPDATE todos SET done = ? WHERE id = ?", (new_done, todo_id))
+    connection.commit()
+    connection.close()
     return True
 
-def toggle_done(index):
-    todos = get_all_todos()
-    if index < 0 or index >= len(todos):
-        return False
-
-    line = todos[index].strip()
-
-    if line.startswith("[ ] "):
-        line = "[x] " + line[4:]
-    elif line.startswith("[x] "):
-        line = "[ ] " + line[4:]
-
-    todos[index] = line + "\n"
-
-    with open("todos.txt", "w") as file:
-        for t in todos:
-            file.write(t)
-
-    return True
 
 def clear_all():
-    with open("todos.txt", "w") as file:
-        file.write("")
+    connection = sqlite3.connect(DB_PATH)
+    cursor = connection.cursor()
 
+    cursor.execute("DELETE FROM todos")
+    connection.commit()
+    connection.close()
