@@ -13,9 +13,10 @@ def start():
         print("4) Clear all todos")
         print("5) Toggle done/undone")
         print("6) Exit")
+        print("7) Export todos to CSV")
         print("---------------------------------")
 
-        choice = input("Choose (1-6): ").strip()
+        choice = input("Choose (1-7): ").strip()
 
         if choice == "1":
             text = input("Enter a todo: ").strip()
@@ -75,6 +76,11 @@ def start():
         elif choice == "6":
             print("Bye!")
             break
+
+        elif choice == "7":
+            from data.exporter import export_to_csv
+            export_to_csv()
+            print("Todos exported to todos.csv take a look in the project folder!")
 
         else:
             print("Invalid choice")
