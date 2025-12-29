@@ -2,5 +2,7 @@
 __pycache__/
 *.py[cod]
 .env
-settings.py
 todos.txt
+settings.py
+db/todo_app.db
+test_db_init.py
